@@ -6,3 +6,13 @@ router.get("/", (req, res) => {
 });
 
 export default router;
+
+export const getFlights = (req, res) => {
+  res.json([
+    {
+      id: 1,
+      airline: "Lotregolpe Experiences",
+      destination: "Las Americas"
+    }
+  ]);
+};
