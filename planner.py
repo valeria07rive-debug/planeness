@@ -20,7 +20,6 @@ def crear_plan():
     return plan
 
 
-# ⚠️ SOLO PARA PROBAR EN ESTE BRANCH
 if __name__ == "__main__":
     plan = crear_plan()
     print("\n🧳 PLAN DE VIAJE")
