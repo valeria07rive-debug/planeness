@@ -1,27 +1,26 @@
-def crear_plan():
-    cliente = input("Nombre del cliente: ")
-    pais = input("País a visitar: ")
-    dias = int(input("Días de estadía: "))
+import requests
 
-    costo_diario = 120
-    fee_agencia = 300
+BASE_URL = "https://restcountries.com/v3.1/name/"
 
-    costo_total = dias * costo_diario + fee_agencia
+def get_country_data(country_name):
+    url = BASE_URL + country_name
+    response = requests.get(url)
 
-    plan = {
-        "cliente": cliente,
-        "pais": pais,
-        "dias": dias,
-        "costo_diario": costo_diario,
-        "fee_agencia": fee_agencia,
-        "costo_total": costo_total
+    if response.status_code != 200:
+        return None
+
+    data = response.json()[0]
+
+    country_info = {
+        "name": data["name"]["official"],
+        "capital": data.get("capital", ["Unknown"])[0],
+        "region": data.get("region", "Unknown"),
+        "subregion": data.get("subregion", "Unknown"),
+        "population": data.get("population", 0),
+        "currencies": list(data.get("currencies", {}).keys()),
+        "languages": list(data.get("languages", {}).values()),
+        "timezone": data.get("timezones", []),
+        "flag": data["flags"]["png"]
     }
 
-    return plan
-
-
-if __name__ == "__main__":
-    plan = crear_plan()
-    print("\n🧳 PLAN DE VIAJE")
-    for k, v in plan.items():
-        print(f"{k}: {v}")
+    return country_info
