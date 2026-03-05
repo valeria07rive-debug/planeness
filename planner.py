@@ -24,3 +24,15 @@ def get_country_data(country_name):
     }
 
     return country_info
+def format_country_info(country):
+    text = f"""
+Country: {country['name']}
+Capital: {country['capital']}
+Region: {country['region']}
+Subregion: {country['subregion']}
+Population: {country['population']}
+Currencies: {', '.join(country['currencies'])}
+Languages: {', '.join(country['languages'])}
+Timezones: {', '.join(country['timezone'])}
+"""
+    return text
