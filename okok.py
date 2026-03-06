@@ -9,7 +9,7 @@ class TripPlanner:
         self.countries.append(country)
         self.days[country] = days
 
-        def estimate_cost(self):
+    def estimate_cost(self):
 
         DAILY_COST = 120
         TRANSPORT = 300
@@ -25,3 +25,14 @@ class TripPlanner:
         cost += AGENCY_FEE
 
         return cost
+
+    def summary(self):
+
+        text = f"Client: {self.client_name}\n"
+
+        for c in self.countries:
+            text += f"{c} - {self.days[c]} days\n"
+
+        text += f"\nEstimated Cost: ${self.estimate_cost()}"
+
+        return text
