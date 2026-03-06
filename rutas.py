@@ -19,6 +19,7 @@ def get_weather(latitude, longitude):
 
     return data["current_weather"]
 
+
 def format_weather(weather):
 
     temp = weather["temperature"]
@@ -30,6 +31,8 @@ Wind Speed: {wind} km/h
 """
 
     return text
+
+
 def get_weather_summary(lat, lon):
 
     weather = get_weather(lat, lon)
@@ -38,4 +41,5 @@ def get_weather_summary(lat, lon):
         return format_weather(weather)
 
     return "Weather data unavailable"
+
 
