@@ -18,3 +18,16 @@ def get_weather(latitude, longitude):
     data = response.json()
 
     return data["current_weather"]
+
+def format_weather(weather):
+
+    temp = weather["temperature"]
+    wind = weather["windspeed"]
+
+    text = f"""
+Current Temperature: {temp}°C
+Wind Speed: {wind} km/h
+"""
+
+    return text
+
