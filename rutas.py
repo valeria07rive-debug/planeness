@@ -1,0 +1,20 @@
+import requests
+
+BASE_URL = "https://api.open-meteo.com/v1/forecast"
+
+def get_weather(latitude, longitude):
+
+    params = {
+        "latitude": latitude,
+        "longitude": longitude,
+        "current_weather": True
+    }
+
+    response = requests.get(BASE_URL, params=params)
+
+    if response.status_code != 200:
+        return None
+
+    data = response.json()
+
+    return data["current_weather"]
