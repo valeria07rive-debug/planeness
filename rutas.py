@@ -30,4 +30,12 @@ Wind Speed: {wind} km/h
 """
 
     return text
+def get_weather_summary(lat, lon):
+
+    weather = get_weather(lat, lon)
+
+    if weather:
+        return format_weather(weather)
+
+    return "Weather data unavailable"
 
