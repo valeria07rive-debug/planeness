@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 
 
 class TripPlanner:
-    def _init_(self, client_name, agency_name, special_requirements=""):
+    def __init__(self, client_name, agency_name, special_requirements=""):
         self.client_name = client_name
         self.agency_name = agency_name
         self.special_requirements = special_requirements
