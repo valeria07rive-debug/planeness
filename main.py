@@ -7,10 +7,12 @@ from planner import (
 )
 
 def main():
+
     name = input("Client name: ")
     planner = TripPlanner(name)
 
     while True:
+
         print("\n1. Add country")
         print("2. Show country info")
         print("3. Show weather")
@@ -31,6 +33,7 @@ def main():
 
         elif option == "3":
             country = input("Enter country: ")
+
             coords = get_coordinates(country)
 
             if coords:
