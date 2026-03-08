@@ -2,6 +2,19 @@ import requests
 
 BASE_URL = "https://api.open-meteo.com/v1/forecast"
 
+countries_coords = {
+    "spain": (40.4168, -3.7038),
+    "france": (48.8566, 2.3522),
+    "japan": (35.6762, 139.6503),
+    "usa": (38.9072, -77.0369)
+}
+
+
+def get_coordinates(country):
+
+    return countries_coords.get(country.lower())
+
+
 def get_weather(latitude, longitude):
 
     params = {
@@ -41,5 +54,3 @@ def get_weather_summary(lat, lon):
         return format_weather(weather)
 
     return "Weather data unavailable"
-
-
