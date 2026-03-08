@@ -1,6 +1,6 @@
 class TripPlanner:
 
-    def __init__ (self, name):
+    def ___init___ (self, name):
         self.name = name
         self.countries = []
 
