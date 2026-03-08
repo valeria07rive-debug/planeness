@@ -1,4 +1,5 @@
 class TripPlanner:
+
     def _init_(self, name):
         self.name = name
         self.countries = []
@@ -8,7 +9,8 @@ class TripPlanner:
         print(f"{country} added for {days} days")
 
     def show_summary(self):
-        print(f"\nTrip summary for {self.name}:")
+
+        print(f"\nTrip summary for {self.name}")
 
         if not self.countries:
             print("No countries added yet")
@@ -17,7 +19,7 @@ class TripPlanner:
         total_days = 0
 
         for country, days in self.countries:
-            print(f"- {country}: {days} days")
+            print(f"{country}: {days} days")
             total_days += days
 
         print(f"Total days: {total_days}")
