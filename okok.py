@@ -6,16 +6,16 @@ class TripPlanner:
 
     def add_country(self, country, days):
         self.countries.append((country, days))
-        print(f"{country} added for {days} days.")
+        print(f"{country} added for {days} days")
 
     def show_summary(self):
 
-        print(f"\nTrip summary for {self.client_name}")
+        print(f"\nTrip Summary for {self.client_name}")
 
-        total_days = 0
+        total = 0
 
         for country, days in self.countries:
             print(f"{country}: {days} days")
-            total_days += days
+            total += days
 
-        print(f"Total days: {total_days}")
+        print(f"Total trip days: {total}")
