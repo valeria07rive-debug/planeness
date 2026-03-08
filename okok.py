@@ -1,5 +1,4 @@
 class TripPlanner:
-
     def _init_(self, name):
         self.name = name
         self.countries = []
