@@ -1,6 +1,6 @@
 from okok import TripPlanner
 from planner import get_country_data, format_country_info
-from rutas import get_weather_summary
+from rutas import get_coordinates, get_weather_summary
 
 def main():
 
@@ -18,18 +18,25 @@ def main():
         option = input("Choose option: ")
 
         if option == "1":
-            country = input("Enter country name: ")
-            days = int(input("How many days will you stay? "))
+            country = input("Enter country: ")
+            days = int(input("Days staying: "))
             planner.add_country(country, days)
 
         elif option == "2":
-            country = input("Enter country name: ")
+            country = input("Enter country: ")
             data = get_country_data(country)
             print(format_country_info(data))
 
         elif option == "3":
-            country = input("Enter country name: ")
-            print(get_weather_summary(country))
+            country = input("Enter country: ")
+
+            coords = get_coordinates(country)
+
+            if coords:
+                lat, lon = coords
+                print(get_weather_summary(lat, lon))
+            else:
+                print("Country not found")
 
         elif option == "4":
             planner.show_summary()
@@ -40,6 +47,7 @@ def main():
 
         else:
             print("Invalid option")
+
 
 if _name_ == "_main_":
     main()
