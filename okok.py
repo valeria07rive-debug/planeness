@@ -3,36 +3,19 @@ class TripPlanner:
     def _init_(self, client_name):
         self.client_name = client_name
         self.countries = []
-        self.days = {}
 
     def add_country(self, country, days):
-        self.countries.append(country)
-        self.days[country] = days
+        self.countries.append((country, days))
+        print(f"{country} added for {days} days.")
 
-    def estimate_cost(self):
+    def show_summary(self):
 
-        DAILY_COST = 120
-        TRANSPORT = 300
-        AGENCY_FEE = 200
+        print(f"\nTrip summary for {self.client_name}")
 
-        total_days = sum(self.days.values())
+        total_days = 0
 
-        cost = total_days * DAILY_COST
+        for country, days in self.countries:
+            print(f"{country}: {days} days")
+            total_days += days
 
-        if len(self.countries) > 1:
-            cost += TRANSPORT * (len(self.countries) - 1)
-
-        cost += AGENCY_FEE
-
-        return cost
-
-    def summary(self):
-
-        text = f"Client: {self.client_name}\n"
-
-        for c in self.countries:
-            text += f"{c} - {self.days[c]} days\n"
-
-        text += f"\nEstimated Cost: ${self.estimate_cost()}"
-
-        return text
+        print(f"Total days: {total_days}")
