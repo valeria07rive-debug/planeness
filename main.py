@@ -58,7 +58,7 @@ def main():
 
     while True:
         print("\n==============================")
-        print("TRAVEL PLANNER APPLICATION")
+        print("MANGOOD APPLICATION")
         print("==============================")
         print("1. Create new travel plan")
         print("2. Search country information")
